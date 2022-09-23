@@ -33,7 +33,7 @@ class PostTextPainter extends CustomPainter {
       // draw text stroke
       p.color = Colors.black;
       p.style = PaintingStyle.stroke;
-      p.strokeWidth = 1;
+      p.strokeWidth = 2;
       drawTextInternal(canvas, size);
     }
     if (drawBody) {
@@ -54,6 +54,14 @@ class PostTextPainter extends CustomPainter {
         foreground: p,
       ),
     );
+    
+    // (This comment from text_painter.dart):
+    //   The TextPainter class should not aggressively invalidate the layout as long
+    //   as `markNeedsLayout` is not called (i.e., the layout cache is still valid).
+    //   See: https://github.com/flutter/flutter/issues/85108
+
+    tp.markNeedsLayout();
+
     tp.layout(
       // minWidth:0,
       minWidth: 200,
