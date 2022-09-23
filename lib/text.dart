@@ -38,7 +38,7 @@ class PostTextPainter extends CustomPainter {
       drawTextInternal(canvas, size, p);
     }
     if (drawBody) {
-      // draw text body
+      // draw text body, use a second paint object here, different from one used for stroke
       fillp.color = textColor;
       fillp.style = PaintingStyle.fill;
       drawTextInternal(canvas, size, fillp);
