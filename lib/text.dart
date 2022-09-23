@@ -44,9 +44,7 @@ class PostTextPainter extends CustomPainter {
     }
   }
 
-  static int call=0;
   void drawTextInternal(Canvas canvas, Size size) {
-    call++;
     tp.text = TextSpan(
       text: "Test",
       style: TextStyle(
@@ -56,6 +54,14 @@ class PostTextPainter extends CustomPainter {
         foreground: p,
       ),
     );
+    
+    // (This comment from text_painter.dart):
+    //   The TextPainter class should not aggressively invalidate the layout as long
+    //   as `markNeedsLayout` is not called (i.e., the layout cache is still valid).
+    //   See: https://github.com/flutter/flutter/issues/85108
+
+    tp.markNeedsLayout();
+
     tp.layout(
       // minWidth:0,
       minWidth: 200,
