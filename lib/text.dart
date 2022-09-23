@@ -51,7 +51,7 @@ class PostTextPainter extends CustomPainter {
         fontSize: fontSize,
         // fontFamily: fontFamily,
         height: 1,
-        overflow: (p.style==PaintingStyle.stroke) ? TextOverflow.clip : TextOverflow.ellipsis,
+        //overflow:  ? TextOverflow.clip : TextOverflow.ellipsis,
         foreground: p,
       ),
     );
@@ -60,7 +60,7 @@ class PostTextPainter extends CustomPainter {
       minWidth: 200,
       maxWidth: 200,
     );
-    tp.paint(canvas, Offset(-100, -100));
+    tp.paint(canvas, (p.style==PaintingStyle.stroke) ? Offset(-100, -100) : Offset(-110, -110));
   }
 
   @override
