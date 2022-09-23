@@ -52,7 +52,7 @@ class PostTextPainter extends CustomPainter {
       style: TextStyle(
         fontSize: fontSize,
         // fontFamily: fontFamily,
-        height: 1,
+        height: 1 + ((p.style==PaintingStyle.stroke)?0.0:0.000001),
         foreground: p,
       ),
     );
