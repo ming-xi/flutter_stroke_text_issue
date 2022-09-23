@@ -44,9 +44,7 @@ class PostTextPainter extends CustomPainter {
     }
   }
 
-  static int call=0;
   void drawTextInternal(Canvas canvas, Size size) {
-    call++;
     tp.text = TextSpan(
       text: "Test",
       style: TextStyle(
