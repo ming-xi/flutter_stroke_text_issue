@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class PostTextPainter extends CustomPainter {
   final Paint p = Paint();
-  final Paint fillp = Paint();
+  final Paint fillp = Paint();  // create a second paint object for fill
   final Color textColor = Colors.white;
   final double fontSize = 100;
   final TextPainter tp = TextPainter(
