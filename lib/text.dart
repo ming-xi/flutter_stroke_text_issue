@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class PostTextPainter extends CustomPainter {
   final Paint p = Paint();
+  final Paint fillp = Paint();
   final Color textColor = Colors.white;
   final double fontSize = 100;
   final TextPainter tp = TextPainter(
@@ -33,25 +34,25 @@ class PostTextPainter extends CustomPainter {
       // draw text stroke
       p.color = Colors.black;
       p.style = PaintingStyle.stroke;
-      p.strokeWidth = 1;
-      drawTextInternal(canvas, size);
+      p.strokeWidth = 3;
+      drawTextInternal(canvas, size, p);
     }
     if (drawBody) {
       // draw text body
-      p.color = textColor;
-      p.style = PaintingStyle.fill;
-      drawTextInternal(canvas, size);
+      fillp.color = textColor;
+      fillp.style = PaintingStyle.fill;
+      drawTextInternal(canvas, size, fillp);
     }
   }
 
-  void drawTextInternal(Canvas canvas, Size size) {
+  void drawTextInternal(Canvas canvas, Size size, Paint paintToUse) {
     tp.text = TextSpan(
       text: "Test",
       style: TextStyle(
         fontSize: fontSize,
         // fontFamily: fontFamily,
         height: 1,
-        foreground: p,
+        foreground: paintToUse,
       ),
     );
     tp.layout(
