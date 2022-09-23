@@ -53,6 +53,7 @@ class PostTextPainter extends CustomPainter {
         fontSize: fontSize,
         // fontFamily: fontFamily,
         height: 1,
+        overflow: (p.style==PaintingStyle.stroke) ? TextOverflow.clip : TextOverflow.ellipsis,
         foreground: p,
       ),
     );
